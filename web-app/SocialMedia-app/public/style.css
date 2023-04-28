@@ -1,6 +1,7 @@
 ul {
   text-align: center;
-  border: 3px solid rgb(0, 0, 0);
+ 
+
   }
 
   nav {
@@ -31,12 +32,14 @@ ul {
     
     background-position: 10px 10px; 
     background-repeat: no-repeat;
+    
  
   }
 
   h2 {
 
     text-align: center;
+    font-size: 250%;
 
   }
 
@@ -44,4 +47,13 @@ ul {
     width:100px;
     height:100px;
     background: url(http://goo.gl/vyAs27) no-repeat scroll 0 0;
+  }
+
+  form {
+
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+
   }

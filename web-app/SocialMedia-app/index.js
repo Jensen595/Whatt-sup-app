@@ -88,7 +88,7 @@ app.post('/login', async (request, response)=>{
             console.log('password matches')
             request.session.userid=userData.username
             await users.setLoggedIn(userData.username, true)
-            response.redirect('/chat.html')
+            response.redirect('hometest.html')
         } else {
             console.log('password wrong')
             response.redirect('/loginfailed.html')
@@ -118,6 +118,34 @@ app.get('/getposts',async (request, response)=>{
     )
 })
 
+/////////////////////////////////////
+
+
+//controller for handling a post being liked
+app.post('/like', async (request, response)=>{
+    //function to deal with a like button being pressed on a post
+    likedPostID=request.body.likedPostID
+    likedByUser=request.session.userid
+    await postData.likePost(likedPostID, likedByUser)
+    // console.log(likedByUser+" liked "+likedPostID)
+    response.json(
+        {posts:await postData.getPosts(5)}
+    )
+})
+
+app.post('/comment', async (request, response)=>{
+    //function to deal with a like button being pressed on a post
+    let commentedPostID=request.body.postid
+    let comment=request.body.message
+    let commentByUser=request.session.userid
+    await postData.commentOnPost(commentedPostID, commentByUser, comment)
+    // response.json({post: await postData.getPost(commentedPostID)})
+    response.redirect('/chat.html')
+})
+
+
+
+/////////////////////////////////////
 
 app.post('/getonepost', async (request, response) =>{
     // console.log(request.file)

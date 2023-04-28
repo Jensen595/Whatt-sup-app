@@ -2,7 +2,8 @@
 <html>
   <head>
 	<link rel="stylesheet" type="text/css" href="hometest.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="profile.css">
  
   </head>
   <body><div class="area">
@@ -66,18 +67,42 @@
             </div>
         
             
+            <div class="container">
+                <h1>John Doe</h1>
+                <img src="https://via.placeholder.com/200" alt="Profile Picture">
+                <div class="info">
+                    <p><span>Username:</span> johndoe</p>
+                    <p><span>Email:</span> johndoe@example.com</p>
+                    <p><span>Location:</span> New York, NY</p>
+                    <p><span>Bio:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, elit elit bibendum.</p>
+                </div>
+                <button class="edit-btn">Edit Profile</button>
+                <form class="form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="johndoe">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" value="johndoe@example.com">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" value="New York, NY">
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" name="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, velit vel bibendum bibendum, elit elit bibendum.</textarea>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+            <script>
+                const editBtn = document.querySelector('.edit-btn');
+                const info = document.querySelector('.info');
+                const form = document.querySelector('.form');
         
+                editBtn.addEventListener('click', () => {
+                    info.style.display = 'none';
+                    form.style.display = 'block';
+                });
+            </script>
         
-            <h2>Logout</h2>
-            <nav>
-           
-            </nav>
-            <form action="/logout" method="POST">
-                <input type="submit" value="Logout">
-            </form>
-
-
-
         
   </body>
     </html>
+
+
+
