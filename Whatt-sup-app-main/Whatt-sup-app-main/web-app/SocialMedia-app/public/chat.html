@@ -129,6 +129,12 @@
 </body>
 </html> -->
 
+
+
+
+
+
+
 <html>
   <head>
 	<link rel="stylesheet" type="text/css" href="hometest.css">
@@ -250,15 +256,27 @@
                         }
                         
                         recentPostsList.appendChild(li)
+
+
+
+                        // show image if present
+                if(post.imagePath){
+                    let postImage=document.createElement('img')
+                    postImage.src=post.imagePath
+                    postImage.alt="temporary alt tag"
+                    postImage.classList.add("post-image-thumbnail")
+                    li.appendChild(postImage)
+                } else {
+                    let noPostImage=document.createElement('p')
+                    noPostImage.textContent="alas, no image!"
+                    li.appendChild(noPostImage)
+                }
                     })
                 }
         
                 //////////////////////////////////
         
-        
-        
-        
-        
+    
                 function processLike(event){
                     let likedPostId=event.target.getAttribute("data-post-id");
                     // console.log('you liked '+likedPostId)
@@ -290,21 +308,21 @@
                 
             </script>
         
-        
-        <form action="/newpost" method="POST">
+         
+        <form action="/newpost" enctype="multipart/form-data" method="POST">
             <label>Message</label>
+            <input type="file" name="myImage" accept="image/*" />
             <input type="text" id="message" name="message"><br>
             <input type="submit" value="Send">
         </form>
+
         
-        <img src="not-found.png" /><img src="http://goo.gl/ijai22" />
-        <input type="submit" value="Post Image">
-            
+        
       
-
-
 
 
         
   </body>
     </html>
+
+    

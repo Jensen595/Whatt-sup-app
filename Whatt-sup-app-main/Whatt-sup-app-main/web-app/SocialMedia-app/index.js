@@ -28,6 +28,11 @@ app.use(express.urlencoded({extended: false}));
 
 const path = require('path');
 
+//multer allows processing multipart forms with images
+const multer=require('multer');
+
+const upload = multer({ dest: './public/uploads/' })
+
 //consts to hold expiry times in ms
 const threeMins = 1000 * 60 * 3;
 const oneHour = 1000 * 60 * 60;
@@ -101,7 +106,7 @@ app.post('/login', async (request, response)=>{
 
 
 app.post('/newpost', async (request, response) =>{
-    // console.log(request.file)
+    console.log(request.body)
     let filename=null
     if(request.file && request.file.filename){ //check that a file was passes with a valid name
         filename='uploads/'+request.file.filename
