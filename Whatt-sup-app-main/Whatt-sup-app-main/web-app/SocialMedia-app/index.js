@@ -105,7 +105,7 @@ app.post('/login', async (request, response)=>{
 })
 
 
-app.post('/newpost', async (request, response) =>{
+app.post('/newpost', upload.single('myImage'), async (request, response) =>{
     console.log(request.body)
     let filename=null
     if(request.file && request.file.filename){ //check that a file was passes with a valid name
