@@ -86,3 +86,8 @@ async function commentOnPost(commentedPostID, commentByUser, comment){
 
 // module.exports = Post;
 module.exports = {addNewPost, getPosts, getPost, likePost, commentOnPost};
+
+
+
+
+

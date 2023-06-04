@@ -20,19 +20,22 @@
 			</div>
 
 		
+             <div class="login">
+    <form action="/login" method="POST">
+      <label for="chk"  aria-hidden="true">Login</label>
 
+      <input type="text" id="username"  placeholder="Username" name="username" required>
 
-            <div class="login">
-				<form action="/login" method="POST">
-					<label for="chk" aria-hidden="true">Login</label>
-
-					<input type="text" id="username" placeholder="Username" name="username"><br>
-					<input type="text" id="password" placeholder="Password" name="password"><br>
-					<button>Login</button>
-				</form>
-			</div>
+      <input type="text" id="password" placeholder="Password" name="password"><br>
+      <button type="submit">Login</button>
+    </form>
 
 
 	</div>
+
+
+
+
+
 </body>
 </html>

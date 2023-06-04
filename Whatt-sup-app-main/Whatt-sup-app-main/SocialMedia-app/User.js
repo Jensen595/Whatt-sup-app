@@ -1,9 +1,3 @@
-
-    // const users=[
-    //     {username:'user1', password:'123', loggedin:false},
-    //     {username:'user2', password:'123', loggedin:false}
-    // ]
-
 const mongoose=require('mongoose');
 const { Schema, model } = mongoose;
 
@@ -83,6 +77,8 @@ const User = model('User', userSchema);
         return false
     }
 
+
+    
 exports.newUser=newUser;
 exports.getUsers=getUsers;
 exports.findUser=findUser;

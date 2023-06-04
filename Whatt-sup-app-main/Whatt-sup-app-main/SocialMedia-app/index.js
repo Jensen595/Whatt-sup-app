@@ -33,6 +33,9 @@ const multer=require('multer');
 
 const upload = multer({ dest: './public/uploads/' })
 
+
+
+
 //consts to hold expiry times in ms
 const threeMins = 1000 * 60 * 3;
 const oneHour = 1000 * 60 * 60;
@@ -60,7 +63,7 @@ function checkLoggedIn(request, response, nextAction){
             nextAction()
         } else {
             request.session.destroy()
-            return response.redirect('/notloggedin.html')
+            return response.redirect('/login.html')
         }
     }
 }
@@ -78,7 +81,7 @@ app.post('/logout', async (request, response)=>{
     await users.setLoggedIn(request.session.userid,false)
     request.session.destroy()
     await console.log(users.getUsers())
-    response.redirect('./loggedout.html')
+    response.redirect('./login.html')
 })
 
 //controller for login
@@ -96,11 +99,11 @@ app.post('/login', async (request, response)=>{
             response.redirect('hometest.html')
         } else {
             console.log('password wrong')
-            response.redirect('/loginfailed.html')
+            response.redirect('/login.html')
         }
     } else {
         console.log('no such user')
-        response.redirect('/loginfailed.html')
+        response.redirect('/login.html')
     }
 })
 
